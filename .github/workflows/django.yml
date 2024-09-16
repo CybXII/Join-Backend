@@ -39,4 +39,4 @@ jobs:
         port: 990
         key: ${{ secrets.SFTP_KEY }}
         protocol: ftps
-        server-dir: root/join_backend/
+        server-dir: /root/join_backend/
