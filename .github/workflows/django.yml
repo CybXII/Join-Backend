@@ -16,42 +16,37 @@ jobs:
         python-version: [3.12.1]
 
     steps:
-    # - uses: actions/checkout@v4
-    # - name: Set up Python ${{ matrix.python-version }}
-    #   uses: actions/setup-python@v3
-    #   with:
-    #     python-version: ${{ matrix.python-version }}
-    # - name: Install Dependencies
-    #   run: |
-    #     python -m pip install --upgrade pip
-    #     pip install -r requirements.txt
-    #     python manage.py makemigrations 
-    #     python manage.py migrate
-    # - name: Run Tests
-    #   run: |
-    #     python manage.py test
-    # - name: 📂 Sync files
-    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-    #   with:
-    #     server: ${{secrets.HOST}}
-    #     username: ${{ secrets.USERNAME }}
-    #     password: ${{ secrets.PASSWORD }}
-    #     port: 990
-    #     key: ${{ secrets.SFTP_KEY }}
-    #     protocol: ftps-legacy
-    #     server-dir: root/join_backend/
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        python manage.py makemigrations 
+        python manage.py migrate
+    - name: Run Tests
+      run: |
+        python manage.py test
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{secrets.HOST}}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: 990
+        key: ${{ secrets.SFTP_KEY }}
+        protocol: ftps-legacy
+        server-dir: root/join_backend/
   
-      - name: List files
-        run: ls -R
-  
-      - name: 📂 Sync files
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}  # Verwende dies, wenn du passwortbasierte Authentifizierung verwendest
-          port: 49393
-          source: "./*"  # Hier gibst du den Pfad zu den lokalen Dateien an
-          target: "/root/join_backend/"
+    - name: 📂 Sync files
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}  # Verwende dies, wenn du passwortbasierte Authentifizierung verwendest
+        port: 49393
+        source: "./*"  # Hier gibst du den Pfad zu den lokalen Dateien an
+        target: "/root/join_backend/"
