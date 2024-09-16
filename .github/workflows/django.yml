@@ -31,12 +31,12 @@ jobs:
     #   run: |
     #     python manage.py test
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      uses: appleboy/scp-action@v0.1.4
       with:
-        server: ${{secrets.HOST}}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: 990
-        key: ${{ secrets.SFTP_KEY }}
-        protocol: ftps
-        server-dir: /root/join_backend/
+        host: ${{ secrets.SFTP_HOST }}
+        username: ${{ secrets.SFTP_USER }}
+        password: ${{ secrets.SFTP_PASSWORD }}  # Use if you're using password-based authentication
+        port: 49393
+        source: "path/to/local/files/*"
+        target: "path/to/remote/directory"
+  
