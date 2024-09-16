@@ -37,5 +37,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{secrets.PORT}}
-        protocol: ftpes
+        key: ${{ secrets.SFTP_KEY }}
+        protocol: ftps
         server-dir: root/join_backend/
