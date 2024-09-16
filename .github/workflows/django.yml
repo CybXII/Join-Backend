@@ -33,7 +33,7 @@ jobs:
     - name: 📂 Sync files
       uses: appleboy/scp-action@v0.1.4
       with:
-        host: ${{ secrets.SFTP_HOST }}
+        host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}  # Use if you're using password-based authentication
         port: 49393
