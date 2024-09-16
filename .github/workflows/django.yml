@@ -34,8 +34,8 @@ jobs:
       uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ secrets.SFTP_HOST }}
-        username: ${{ secrets.SFTP_USER }}
-        password: ${{ secrets.SFTP_PASSWORD }}  # Use if you're using password-based authentication
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}  # Use if you're using password-based authentication
         port: 49393
         source: "path/to/local/files/*"
         target: "path/to/remote/directory"
