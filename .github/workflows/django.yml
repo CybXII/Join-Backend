@@ -36,6 +36,6 @@ jobs:
         server: ${{secrets.HOST}}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        port: ${{secrets.PORT}}
+        # port: ${{secrets.PORT}}
         protocol: ftp
         server-dir: root/join_backend/
