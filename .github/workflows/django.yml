@@ -30,21 +30,13 @@ jobs:
     # - name: Run Tests
     #   run: |
     #     python manage.py test
-    # - name: 📂 Sync files
-    #   uses: SamKirkland/FTP-Deploy-Action@4.3.1
-    #   with:
-    #     server: ${{secrets.HOST}}
-    #     username: ${{ secrets.USERNAME }}
-    #     password: ${{ secrets.PASSWORD }}
-    #     port: 990
-    #     key: ${{ secrets.SFTP_KEY }}
-    #     protocol: ftps-legacy
-    #     server-dir: root/join_backend/
-    - name: "Deploy"
-      uses: milanmk/actions-file-deployer@master
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        remote-protocol: "sftp"
-        remote-host: ${{secrets.HOST}}
-        remote-user: ${{ secrets.USERNAME }}
-        remote-password: ${{ secrets.PASSWORD }}
-        remote-path: "/root/join_backend/"
+        server: ${{secrets.HOST}}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: 990
+        key: ${{ secrets.SFTP_KEY }}
+        protocol: ftps
+        server-dir: root/join_backend/
