@@ -40,7 +40,9 @@ jobs:
     #     key: ${{ secrets.SFTP_KEY }}
     #     protocol: ftps-legacy
     #     server-dir: root/join_backend/
-
+        - name: List files
+          run: ls -R
+      
         - name: 📂 Sync files
           uses: appleboy/scp-action@v0.1.4
           with:
