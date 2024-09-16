@@ -30,3 +30,12 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.1
+      with:
+        server: ${{secrets.HOST}}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{secrets.PORT}}
+        protocol: sftp
+        server-dir: root/join_backend/

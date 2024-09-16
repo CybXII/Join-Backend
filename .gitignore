@@ -1,4 +1,7 @@
 config.bat
+up.bat
+make.bat
+Makefile
 
 # SQLite DB & Migrations
 **/migrations/**
