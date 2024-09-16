@@ -30,13 +30,22 @@ jobs:
     # - name: Run Tests
     #   run: |
     #     python manage.py test
-    - name: 📂 Sync files
-      uses: appleboy/scp-action@v0.1.4
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}  # Use if you're using password-based authentication
-        port: 49393
-        source: "path/to/local/files/*"
-        target: "path/to/remote/directory"
-  
+    # - name: 📂 Sync files
+    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+    #   with:
+    #     server: ${{secrets.HOST}}
+    #     username: ${{ secrets.USERNAME }}
+    #     password: ${{ secrets.PASSWORD }}
+    #     port: 990
+    #     key: ${{ secrets.SFTP_KEY }}
+    #     protocol: ftps-legacy
+    #     server-dir: root/join_backend/
+
+        - name: 📂 Sync files
+          uses: appleboy/scp-action@v0.1.4
+          with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            password: ${{ secrets.PASSWORD }}  # Use if you're using password-based authentication
+            port: 49393
+            target: "/root/join_backend/"
