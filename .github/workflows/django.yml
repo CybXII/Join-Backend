@@ -30,7 +30,6 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
-  
     - name: 📂 Sync files
       uses: appleboy/scp-action@v0.1.4
       with:
