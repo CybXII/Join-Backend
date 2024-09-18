@@ -41,7 +41,7 @@ jobs:
         target: "/root/join_backend/"
     - name: 🔄 Stop and Restart Python App
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} -p 49393 << 'EOF'
+        sshpass -p ${{ secrets.PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} -p 49393 << 'EOF'
         pkill -f "python"  # Beendet den Python-Prozess (falls er läuft)
         cd /root/join_backend/
         source venv/bin/activate  # Aktiviert das virtuelle Environment
