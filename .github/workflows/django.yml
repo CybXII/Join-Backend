@@ -38,4 +38,4 @@ jobs:
         password: ${{ secrets.PASSWORD }}  # Verwende dies, wenn du passwortbasierte Authentifizierung verwendest
         port: 49393
         source: "./*"  # Hier gibst du den Pfad zu den lokalen Dateien an
-        target: "/root/join_backend/"
+        target: "/join_backend/"
